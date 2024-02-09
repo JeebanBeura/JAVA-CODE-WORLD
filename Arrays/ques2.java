@@ -7,29 +7,27 @@ import java.util.Scanner;
 public class ques2 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        System.out.print("Enter yhe size of the arrays:- ");
+
+        System.out.print("Enter the size of array : ");
         int size = sc.nextInt();
-
-        int[] arr = new int[size];
-        System.out.print("Enter the element of the arrays:- ");
-        for (int i = 0; i < size; i++) {
-            arr[i]= sc.nextInt();
+        
+        int array[] = new int[size];
+        
+        System.out.print("Enter array elements : ");
+        for (int i = 0; i < array.length; i++) {
+            array[i] = sc.nextInt();
         }
 
-        int max =Integer.MIN_VALUE;
-        for (int i = 0; i < arr.length; i++) {
-            if(max<arr[i]){
-                max = arr[i];
+        int largest = Integer.MIN_VALUE;
+        int secondLargest = Integer.MIN_VALUE;
+
+        for (int i = 0; i < array.length; i++) {
+            if(array[i] > largest){
+                secondLargest = largest;
+                largest = array[i];
             }
-            // max = Math.max(max,arr[i])
-        }
-
-        int smx = Integer.MIN_VALUE;
-        for (int i = 0; i < arr.length; i++) {
-            if(max != arr[i]){
-                if(smx<arr[i]){
-                    smx = arr[i];
-                }
+            if(array[i] > secondLargest && array[i] != largest){
+                secondLargest = array[i];
             }
         }
         System.out.println("Second largest element in the array is:- "+smx);
